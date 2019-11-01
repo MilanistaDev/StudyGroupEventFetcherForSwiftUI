@@ -11,3 +11,7 @@ import Foundation
 struct StudyGroup: Decodable {
     var events: [Event]
 }
+
+// Reference of API
+// Event Search API
+// https://connpass.com/about/api/
