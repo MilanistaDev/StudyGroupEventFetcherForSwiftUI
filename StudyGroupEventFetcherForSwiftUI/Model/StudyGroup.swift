@@ -17,7 +17,7 @@ struct StudyGroup: Decodable {
 // https://connpass.com/about/api/
 
 // Sample mock data
-let mockEventsData
+let mockEventsData: [Event]
     = [Event(id: 1,
              title: "YUMEMI.swift #1 ~WWDC19報告会~",
              eventUrl: "https://yumemi.connpass.com/event/131175/",
