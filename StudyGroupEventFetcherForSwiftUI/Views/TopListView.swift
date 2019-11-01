@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TopListView.swift
 //  StudyGroupEventFetcherForSwiftUI
 //
 //  Created by Takuya Aso on 2019/11/01.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TopListView: View {
     var body: some View {
-        Text("Hello World")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct TopListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TopListView()
     }
 }
