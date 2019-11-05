@@ -34,8 +34,8 @@ struct EventDetailView: View {
                         .edgesIgnoringSafeArea(.bottom)
                 }
             }
-            .navigationBarTitle("Event Detail")
         }
+        .navigationBarTitle("Event Detail", displayMode: .inline)
     }
 }
 
