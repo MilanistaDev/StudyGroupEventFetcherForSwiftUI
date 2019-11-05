@@ -29,6 +29,10 @@ struct EventDetailView: View {
                     Text("connpassのイベントページへ")
                         .font(.subheadline)
                 }
+                .sheet(isPresented: $showModal) {
+                    SafariView(url: URL(string: self.eventData.eventUrl))
+                        .edgesIgnoringSafeArea(.bottom)
+                }
             }
             .navigationBarTitle("Event Detail")
         }
