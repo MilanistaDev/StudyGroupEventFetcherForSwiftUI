@@ -15,7 +15,9 @@ struct TopListView: View {
     var body: some View {
         NavigationView {
             List(eventsData) { event in
-                EventRowView(eventData: event)
+                NavigationLink(destination: EventDetailView(eventData: event)) {
+                    EventRowView(eventData: event)
+                }
             }
             .navigationBarTitle(Text("YUMEMI.swift一覧"))
         }
