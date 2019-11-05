@@ -8,11 +8,11 @@
 
 import Foundation
 
-class StudyGroupEventFetcher {
+class StudyGroupEventFetcher: ObservableObject {
 
     // connpass's event search API
     private let urlLink = "https://connpass.com/api/v1/event/?keyword=YUMEMI.swift"
-    var eventData: [Event] = []
+    @Published var eventData: [Event] = []
 
     init() {
         fetchEventData()
