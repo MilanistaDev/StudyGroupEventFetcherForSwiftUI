@@ -22,7 +22,7 @@ struct EventRowView: View {
                 .padding(Edge.Set.bottom, 12.0)
             HStack {
                 Text("🗓").font(.footnote)
-                Text(eventData.startDate).font(.footnote)
+                Text(StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate)).font(.footnote)
             }.padding(Edge.Set.bottom, 6.0)
             HStack {
                 Text("👤").font(.footnote)
