@@ -4,6 +4,12 @@ This is a sample project of SwiftUI that displays the data obtained via external
 This App fetches study group event list via connpass API.  
 For example, YUMEMI.swift. We hold on a regular basis.
 
+## Qiita
+
+Wrote article.
+
+[https://qiita.com/MilanistaDev/items/64dca8c9d5099a19529e](https://qiita.com/MilanistaDev/items/64dca8c9d5099a19529e)
+
 ## Enjoy SwiftUI vol2
 
 This sample is for live coding of Enjoy SwiftUI vol2.  
