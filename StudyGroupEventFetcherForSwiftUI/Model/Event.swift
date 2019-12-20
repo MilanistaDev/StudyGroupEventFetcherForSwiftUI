@@ -15,6 +15,8 @@ struct Event: Decodable, Identifiable {
     var hashTag: String
     var startDate: String
     var address: String
+    var lat: String
+    var lon: String
     var ownerDisplayName: String
 
     enum CodingKeys: String, CodingKey {
@@ -24,6 +26,8 @@ struct Event: Decodable, Identifiable {
         case hashTag = "hash_tag"
         case startDate = "started_at"
         case address = "address"
+        case lat = "lat"
+        case lon = "lon"
         case ownerDisplayName = "owner_display_name"
     }
 }
