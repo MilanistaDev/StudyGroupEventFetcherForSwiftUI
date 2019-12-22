@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct EventDetailView: View {
 
@@ -18,7 +17,7 @@ struct EventDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 // MapView Part
-                MapView().frame(height: 250)
+                MapView().frame(height: 300.0)
                 // Event detail part
                 EventDetailPartView(eventData: self.eventData)
                 // Bottom button
@@ -40,24 +39,6 @@ struct EventDetailView: View {
             }
         }
         .navigationBarTitle("Event Detail", displayMode: .inline)
-    }
-}
-
-struct MapView: UIViewRepresentable {
-
-    func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView(frame: .zero)
-        let center = CLLocationCoordinate2DMake(35.641587300000, 139.669071500000)
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: center, span: span)
-        mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
-        return mapView
-    }
-
-    // Required
-    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
     }
 }
 
