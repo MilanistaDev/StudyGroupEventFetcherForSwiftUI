@@ -24,7 +24,7 @@ struct EventRowView: View {
                 Image(systemName: "calendar")
                     .imageScale(.medium)
                     .foregroundColor(.red)
-                Text(StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate) + "~").font(.footnote)
+                Text(StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate, isOnlyDate: false) + "~").font(.footnote)
             }.padding(Edge.Set.bottom, 6.0)
             HStack {
                 Image(systemName: "person.fill")
