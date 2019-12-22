@@ -11,27 +11,33 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
 
-    var lat: Double!
-    var lon: Double!
+    let eventData: Event!
 
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)
-        let center = CLLocationCoordinate2DMake(lat, lon)
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: center, span: span)
-        mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
         return mapView
     }
 
     // Required
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
+        let center = CLLocationCoordinate2DMake(Double(eventData.lat)!, Double(eventData.lon)!)
+        let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+        let region = MKCoordinateRegion(center: center, span: span)
+        uiView.setRegion(region, animated: true)
+        uiView.showsUserLocation = true
+        uiView.userTrackingMode = .follow
+
+        // Put Annotaion on event place
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = center
+        annotation.title = "ココ！"
+        annotation.subtitle = eventData.place
+        uiView.addAnnotation(annotation)
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(lat: 35.641587300000, lon: 139.669071500000)
+        MapView(eventData: mockEventsData.first)
     }
 }

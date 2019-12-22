@@ -17,7 +17,7 @@ struct EventDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 // MapView Part
-                MapView(lat: Double(eventData.lat), lon: Double(eventData.lon))
+                MapView(eventData: self.eventData)
                     .frame(height: 300.0)
                 // Event detail part
                 EventDetailPartView(eventData: self.eventData)
