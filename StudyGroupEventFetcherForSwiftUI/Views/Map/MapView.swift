@@ -21,11 +21,16 @@ struct MapView: UIViewRepresentable {
     // Required
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
         let center = CLLocationCoordinate2DMake(Double(eventData.lat)!, Double(eventData.lon)!)
-        let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: center, span: span)
         uiView.setRegion(region, animated: true)
-        uiView.showsUserLocation = true
+        //uiView.showsUserLocation = true
         uiView.userTrackingMode = .follow
+
+        // POI Filtering
+        let category: [MKPointOfInterestCategory] = [.parking, .publicTransport]
+        let filter = MKPointOfInterestFilter(including: category)
+        uiView.pointOfInterestFilter = filter
 
         // Put Annotaion on event place
         let annotation = MKPointAnnotation()
