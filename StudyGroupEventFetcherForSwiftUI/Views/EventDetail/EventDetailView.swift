@@ -10,25 +10,29 @@ import SwiftUI
 
 struct EventDetailView: View {
 
-    @State var showModal = false
-
-    var eventData: Event    // From ListView
+    @State private var showModal = false
+    var eventData: Event    // From ListView(静的モデル)
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .center) {
-                Image("img_yumemi_swift").scaledToFit()
-                    .padding(Edge.Set.bottom, 8.0)
-                Text(eventData.title)
-                    .font(.headline)
-                    .lineLimit(2)
-                    .padding(Edge.Set.bottom, 16.0)
+            VStack(alignment: .leading) {
+                // MapView Part
+                MapView(eventData: self.eventData)
+                    .frame(height: 300.0)
+                // Event detail part
+                EventDetailPartView(eventData: self.eventData)
+                // Bottom button
                 Button(action: {
                     self.showModal.toggle()
                 }) {
-                    Text("connpassのイベントページへ")
-                        .font(.subheadline)
+                    Text("connpassのイベントページ")
+                        .font(Font.body.bold())
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(5.0)
                 }
+                .frame(minWidth: 0, maxWidth: .infinity)
                 .sheet(isPresented: $showModal) {
                     SafariView(url: URL(string: self.eventData.eventUrl))
                         .edgesIgnoringSafeArea(.bottom)

@@ -29,7 +29,29 @@ If you'd like to browse the detail of this API, please access this link.
 [https://connpass.com/about/api/](https://connpass.com/about/api/)
 
 ## Run this code
-![Readme](https://user-images.githubusercontent.com/8732417/68367755-be15ed00-0179-11ea-8d79-b04930818aa1.gif)
+![RPReplay_Final1577106112](https://user-images.githubusercontent.com/8732417/71359508-f9f0fe80-25cf-11ea-8d64-84f4a79a2892.gif)
 
-* Xcode 11.1
-* macOS 10.15
+
+## Support
+* macOS Catalina 10.15.1 and later
+* Xcode 11.2.1 and later
+
+## App update history
+
+|App Version|Date|MEMO|
+|:--:|:--:|:--|
+|1.0|2019-11-08|v1.0 released.|
+|1.0.1|2019-12-23|Implemented DetailView Screen.|
+
+## Contact
+
+Please feel free to contact us if you find a bug or have any feedback.  
+Suggestions for adding functions and code corrections are also welcome.
+
+```swift
+let name = "Takuya Aso" 
+let email = "milanista224" + "@" + "icloud.com"
+let profession = "iOS Engineer"
+let location = "Tokyo"
+```
+
