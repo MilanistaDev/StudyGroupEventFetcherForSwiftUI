@@ -18,8 +18,8 @@ struct Event: Decodable, Identifiable {
     var endDate: String
     var place: String
     var address: String
-    var lat: String
-    var lon: String
+    var lat: String?
+    var lon: String?
     var ownerDisplayName: String
 
     enum CodingKeys: String, CodingKey {

@@ -20,7 +20,11 @@ struct MapView: UIViewRepresentable {
 
     // Required
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
-        let center = CLLocationCoordinate2DMake(Double(eventData.lat)!, Double(eventData.lon)!)
+        // If address is オンライン, the location data are nil.
+        guard let lat = eventData.lat, let lon = eventData.lon else {
+            return
+        }
+        let center = CLLocationCoordinate2DMake(Double(lat)!, Double(lon)!)
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: center, span: span)
         uiView.setRegion(region, animated: true)
