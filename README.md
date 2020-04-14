@@ -42,6 +42,7 @@ If you'd like to browse the detail of this API, please access this link.
 |:--:|:--:|:--|
 |1.0|2019-11-08|v1.0 released.|
 |1.0.1|2019-12-23|Implemented DetailView Screen.|
+|1.0.2|2020-04-14|Fixed a bug that the list is not displayed<BR>when there is no location information of the event.|
 
 ## Contact
 
