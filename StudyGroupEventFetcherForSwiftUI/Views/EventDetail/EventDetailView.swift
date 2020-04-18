@@ -26,13 +26,14 @@ struct EventDetailView: View {
                     self.showModal.toggle()
                 }) {
                     Text("connpassのイベントページ")
-                        .font(Font.body.bold())
+                        .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()
+                        .font(Font.body.bold())
                         .foregroundColor(.white)
                         .background(Color.red)
                         .cornerRadius(5.0)
                 }
-                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(20.0)
                 .sheet(isPresented: $showModal) {
                     SafariView(url: URL(string: self.eventData.eventUrl))
                         .edgesIgnoringSafeArea(.bottom)
