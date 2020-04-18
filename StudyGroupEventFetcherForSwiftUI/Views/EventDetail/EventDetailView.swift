@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct EventDetailView: View {
-
-    @State private var showModal = false
     var eventData: Event    // From ListView(静的モデル)
 
     var body: some View {
@@ -22,22 +20,7 @@ struct EventDetailView: View {
                 // Event detail part
                 EventDetailPartView(eventData: self.eventData)
                 // Bottom button
-                Button(action: {
-                    self.showModal.toggle()
-                }) {
-                    Text("connpassのイベントページ")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .font(Font.body.bold())
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        .cornerRadius(5.0)
-                }
-                .padding(20.0)
-                .sheet(isPresented: $showModal) {
-                    SafariView(url: URL(string: self.eventData.eventUrl))
-                        .edgesIgnoringSafeArea(.bottom)
-                }
+                EventDetailButtonView(eventUrl: self.eventData.eventUrl)
             }
         }
         .navigationBarTitle("Event Detail", displayMode: .inline)
