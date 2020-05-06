@@ -19,28 +19,9 @@ struct EventDetailView: View {
                 ZStack(alignment: .bottomTrailing) {
                     MapView(eventData: self.eventData, zoomValue: $zoomValue)
                         .frame(height: 300.0)
-                    VStack {
-                        Button(action: {
-                            // マップ拡大
-                            self.zoomValue *= 0.5
-                        }) {
-                            Image(systemName: "plus.app.fill")
-                                .resizable()
-                                .frame(width: 30.0, height: 30.0)
-                                .foregroundColor(.gray)
-                        }
-                        Button(action: {
-                            // マップ縮小
-                            self.zoomValue *= 2
-                        }) {
-                            Image(systemName: "minus.square.fill")
-                                .resizable()
-                                .frame(width: 30.0, height: 30.0)
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    .padding(.bottom, 24.0)
-                    .padding(.trailing, 12.0)
+                    EventDetailMapButtonView(zoomValue: $zoomValue)
+                        .padding(.bottom, 24.0)
+                        .padding(.trailing, 12.0)
                 }
                 // Event detail part
                 EventDetailPartView(eventData: self.eventData)
