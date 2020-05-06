@@ -10,30 +10,33 @@ import SwiftUI
 
 struct EventDetailView: View {
     var eventData: Event    // From ListView(静的モデル)
+    @State private var zoomValue = 0.01
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 // MapView Part
                 ZStack(alignment: .bottomTrailing) {
-                    MapView(eventData: self.eventData)
+                    MapView(eventData: self.eventData, zoomValue: $zoomValue)
                         .frame(height: 300.0)
                     VStack {
                         Button(action: {
                             // マップ拡大
+                            self.zoomValue *= 0.5
                         }) {
                             Image(systemName: "plus.app.fill")
-                            .resizable()
-                            .frame(width: 20.0, height: 20.0)
-                            .foregroundColor(.gray)
+                                .resizable()
+                                .frame(width: 30.0, height: 30.0)
+                                .foregroundColor(.gray)
                         }
                         Button(action: {
                             // マップ縮小
+                            self.zoomValue *= 2
                         }) {
                             Image(systemName: "minus.square.fill")
-                            .resizable()
-                            .frame(width: 20.0, height: 20.0)
-                            .foregroundColor(.gray)
+                                .resizable()
+                                .frame(width: 30.0, height: 30.0)
+                                .foregroundColor(.gray)
                         }
                     }
                     .padding(.bottom, 24.0)

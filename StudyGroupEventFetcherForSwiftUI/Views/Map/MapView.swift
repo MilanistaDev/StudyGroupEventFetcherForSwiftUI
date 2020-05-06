@@ -12,6 +12,7 @@ import MapKit
 struct MapView: UIViewRepresentable {
 
     let eventData: Event!
+    @Binding var zoomValue: CLLocationDegrees
 
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)
@@ -25,10 +26,10 @@ struct MapView: UIViewRepresentable {
             return
         }
         let center = CLLocationCoordinate2DMake(Double(lat)!, Double(lon)!)
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let span = MKCoordinateSpan(latitudeDelta: zoomValue, longitudeDelta: zoomValue)
         let region = MKCoordinateRegion(center: center, span: span)
         uiView.setRegion(region, animated: true)
-        //uiView.showsUserLocation = true
+        uiView.showsUserLocation = true
         uiView.userTrackingMode = .follow
 
         // POI Filtering
@@ -47,6 +48,6 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(eventData: mockEventsData.first)
+        MapView(eventData: mockEventsData.first, zoomValue: .constant(0.01))
     }
 }
