@@ -15,8 +15,30 @@ struct EventDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 // MapView Part
-                MapView(eventData: self.eventData)
-                    .frame(height: 300.0)
+                ZStack(alignment: .bottomTrailing) {
+                    MapView(eventData: self.eventData)
+                        .frame(height: 300.0)
+                    VStack {
+                        Button(action: {
+                            // マップ拡大
+                        }) {
+                            Image(systemName: "plus.app.fill")
+                            .resizable()
+                            .frame(width: 20.0, height: 20.0)
+                            .foregroundColor(.gray)
+                        }
+                        Button(action: {
+                            // マップ縮小
+                        }) {
+                            Image(systemName: "minus.square.fill")
+                            .resizable()
+                            .frame(width: 20.0, height: 20.0)
+                            .foregroundColor(.gray)
+                        }
+                    }
+                    .padding(.bottom, 24.0)
+                    .padding(.trailing, 12.0)
+                }
                 // Event detail part
                 EventDetailPartView(eventData: self.eventData)
                 // Bottom button
