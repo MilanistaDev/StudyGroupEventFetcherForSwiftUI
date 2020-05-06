@@ -18,20 +18,20 @@ struct EventRowView: View {
                 .bold()
                 .font(.headline)
                 .lineLimit(2)
-                .padding(Edge.Set.top, 8.0)
-                .padding(Edge.Set.bottom, 12.0)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.vertical, 8.0)
             HStack {
                 Image(systemName: "calendar")
                     .imageScale(.medium)
                     .foregroundColor(.red)
                 Text(StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate, isOnlyDate: false) + "~").font(.footnote)
-            }.padding(Edge.Set.bottom, 6.0)
+            }
             HStack {
                 Image(systemName: "person.fill")
                     .imageScale(.medium)
                     .foregroundColor(.red)
                 Text(eventData.ownerDisplayName + " 他").font(.footnote)
-            }.padding(Edge.Set.bottom, 6.0)
+            }.padding(.vertical, 6.0)
             HStack {
                 Image(systemName: "mappin.and.ellipse")
                     .imageScale(.medium)
@@ -39,14 +39,15 @@ struct EventRowView: View {
                 Text(eventData.address)
                     .font(.footnote)
                     .lineLimit(3)
-            }.padding(Edge.Set.bottom, 4.0)
+                    .fixedSize(horizontal: false, vertical: true)
+            }.padding(.bottom, 4.0)
             HStack {
                 Spacer()
                 Text("#" + eventData.hashTag)
                     .foregroundColor(.blue)
                     .font(.caption)
-                    .padding(Edge.Set.bottom, 8.0)
             }
+            .padding(.bottom, 8.0)
         }
     }
 }
