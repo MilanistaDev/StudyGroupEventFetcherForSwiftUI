@@ -10,13 +10,19 @@ import SwiftUI
 
 struct EventDetailView: View {
     var eventData: Event    // From ListView(静的モデル)
+    @State private var zoomValue = 0.01
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 // MapView Part
-                MapView(eventData: self.eventData)
-                    .frame(height: 300.0)
+                ZStack(alignment: .bottomTrailing) {
+                    MapView(eventData: self.eventData, zoomValue: $zoomValue)
+                        .frame(height: 300.0)
+                    EventDetailMapButtonView(zoomValue: $zoomValue)
+                        .padding(.bottom, 24.0)
+                        .padding(.trailing, 12.0)
+                }
                 // Event detail part
                 EventDetailPartView(eventData: self.eventData)
                 // Bottom button
