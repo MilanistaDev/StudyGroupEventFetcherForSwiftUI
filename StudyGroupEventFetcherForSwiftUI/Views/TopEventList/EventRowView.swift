@@ -21,9 +21,15 @@ struct EventRowView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.vertical, 8.0)
             HStack {
-                Image(systemName: "calendar")
-                    .imageScale(.medium)
-                    .foregroundColor(.red)
+                if #available(iOS 14.0, *) {
+                    Image(systemName: "calendar.circle.fill")
+                        .renderingMode(.original)
+                        .imageScale(.medium)
+                } else {
+                    Image(systemName: "calendar")
+                        .imageScale(.medium)
+                        .foregroundColor(.red)
+                }
                 Text(StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate, isOnlyDate: false) + "~").font(.footnote)
             }
             HStack {
@@ -33,9 +39,15 @@ struct EventRowView: View {
                 Text(eventData.ownerDisplayName + " 他").font(.footnote)
             }.padding(.vertical, 6.0)
             HStack {
-                Image(systemName: "mappin.and.ellipse")
-                    .imageScale(.medium)
-                    .foregroundColor(.red)
+                if #available(iOS 14.0, *) {
+                    Image(systemName: "mappin.circle.fill")
+                        .renderingMode(.original)
+                        .imageScale(.medium)
+                } else {
+                    Image(systemName: "mappin.and.ellipse")
+                        .imageScale(.medium)
+                        .foregroundColor(.red)
+                }
                 Text(eventData.address)
                     .font(.footnote)
                     .lineLimit(3)
