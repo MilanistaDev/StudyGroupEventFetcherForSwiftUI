@@ -25,7 +25,7 @@ struct EventRowView: View {
                 iconName: "calendar.circle.fill",
                 colorType: .multiColor)
             EventLabelView(labelName: eventData.ownerDisplayName + " 他",
-                           iconName: "mappin.circle.fill",
+                           iconName: "person.fill",
                            colorType: .monochrome)
             EventLabelView(labelName: eventData.address,
                            iconName: "mappin.circle.fill",
@@ -38,43 +38,6 @@ struct EventRowView: View {
             }
             .padding(.bottom, 8.0)
         }
-    }
-}
-
-enum ColorType {
-    case multiColor
-    case monochrome
-}
-
-struct EventLabelView: View {
-
-    var labelName: String
-    var iconName: String
-    var colorType: ColorType
-
-    var body: some View {
-        HStack {
-            switch colorType {
-            case .monochrome:
-                Image(systemName: iconName)
-                    .imageScale(.medium)
-                    .foregroundColor(.red)
-            case .multiColor:
-                if #available(iOS 14.0, *) {
-                    Image(systemName: iconName)
-                        .renderingMode(.original)
-                        .imageScale(.medium)
-                } else {
-                    Image(systemName: iconName)
-                        .imageScale(.medium)
-                        .foregroundColor(.red)
-                }
-            }
-            Text(labelName)
-                .font(.footnote)
-                .lineLimit(3)
-                .fixedSize(horizontal: false, vertical: true)
-        }.padding(.bottom, 6.0)
     }
 }
 
