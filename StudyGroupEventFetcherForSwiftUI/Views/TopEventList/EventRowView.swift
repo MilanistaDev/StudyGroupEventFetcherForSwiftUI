@@ -20,39 +20,16 @@ struct EventRowView: View {
                 .lineLimit(2)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.vertical, 8.0)
-            HStack {
-                if #available(iOS 14.0, *) {
-                    Image(systemName: "calendar.circle.fill")
-                        .renderingMode(.original)
-                        .imageScale(.medium)
-                } else {
-                    Image(systemName: "calendar")
-                        .imageScale(.medium)
-                        .foregroundColor(.red)
-                }
-                Text(StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate, isOnlyDate: false) + "~").font(.footnote)
-            }
-            HStack {
-                Image(systemName: "person.fill")
-                    .imageScale(.medium)
-                    .foregroundColor(.red)
-                Text(eventData.ownerDisplayName + " 他").font(.footnote)
-            }.padding(.vertical, 6.0)
-            HStack {
-                if #available(iOS 14.0, *) {
-                    Image(systemName: "mappin.circle.fill")
-                        .renderingMode(.original)
-                        .imageScale(.medium)
-                } else {
-                    Image(systemName: "mappin.and.ellipse")
-                        .imageScale(.medium)
-                        .foregroundColor(.red)
-                }
-                Text(eventData.address)
-                    .font(.footnote)
-                    .lineLimit(3)
-                    .fixedSize(horizontal: false, vertical: true)
-            }.padding(.bottom, 4.0)
+            EventLabelView(
+                labelName: StudyGroupDateFormatter.convertNormalDateString(dateStr: eventData.startDate, isOnlyDate: false) + "~",
+                iconName: "calendar.circle.fill",
+                colorType: .multiColor)
+            EventLabelView(labelName: eventData.ownerDisplayName + " 他",
+                           iconName: "mappin.circle.fill",
+                           colorType: .monochrome)
+            EventLabelView(labelName: eventData.address,
+                           iconName: "mappin.circle.fill",
+                           colorType: .multiColor)
             HStack {
                 Spacer()
                 Text("#" + eventData.hashTag)
@@ -61,6 +38,43 @@ struct EventRowView: View {
             }
             .padding(.bottom, 8.0)
         }
+    }
+}
+
+enum ColorType {
+    case multiColor
+    case monochrome
+}
+
+struct EventLabelView: View {
+
+    var labelName: String
+    var iconName: String
+    var colorType: ColorType
+
+    var body: some View {
+        HStack {
+            switch colorType {
+            case .monochrome:
+                Image(systemName: iconName)
+                    .imageScale(.medium)
+                    .foregroundColor(.red)
+            case .multiColor:
+                if #available(iOS 14.0, *) {
+                    Image(systemName: iconName)
+                        .renderingMode(.original)
+                        .imageScale(.medium)
+                } else {
+                    Image(systemName: iconName)
+                        .imageScale(.medium)
+                        .foregroundColor(.red)
+                }
+            }
+            Text(labelName)
+                .font(.footnote)
+                .lineLimit(3)
+                .fixedSize(horizontal: false, vertical: true)
+        }.padding(.bottom, 6.0)
     }
 }
 
