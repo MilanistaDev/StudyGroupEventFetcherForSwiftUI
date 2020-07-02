@@ -34,21 +34,6 @@ struct TopListView: View {
     }
 }
 
-struct LoadingView: View {
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: 100.0, height: 100.0, alignment: .center)
-                .foregroundColor(.gray)
-                .cornerRadius(10.0)
-            Text("Loading...")
-                .font(.body)
-                .bold()
-                .foregroundColor(.white)
-        }
-    }
-}
-
 struct TopListView_Previews: PreviewProvider {
     static var previews: some View {
         TopListView()
