@@ -21,13 +21,30 @@ struct TopListView: View {
                         EventRowView(eventData: event)
                     }
                 }
-                if #available(iOS 14.0, *) {
-                    if self.topListVM.isShowIndicator {
-                        ProgressView("Loading...")
+                if self.topListVM.isShowIndicator {
+                    if #available(iOS 14.0, *) {
+                        AnyView(ProgressView("Loading..."))
+                    } else {
+                        LoadingView()
                     }
                 }
             }
             .navigationBarTitle(Text("YUMEMI.swift一覧"))
+        }
+    }
+}
+
+struct LoadingView: View {
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .frame(width: 100.0, height: 100.0, alignment: .center)
+                .foregroundColor(.gray)
+                .cornerRadius(10.0)
+            Text("Loading...")
+                .font(.body)
+                .bold()
+                .foregroundColor(.white)
         }
     }
 }
