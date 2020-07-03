@@ -11,10 +11,9 @@ import SwiftUI
 struct LoadingView: View {
     var body: some View {
         ZStack {
-            Rectangle()
+            RoundedRectangle(cornerRadius: 10.0)
+                .fill(Color.gray)
                 .frame(width: 100.0, height: 100.0, alignment: .center)
-                .foregroundColor(.gray)
-                .cornerRadius(10.0)
             VStack {
                 Text("💫")
                     .padding(.bottom, 10.0)
