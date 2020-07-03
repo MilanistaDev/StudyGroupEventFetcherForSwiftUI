@@ -15,9 +15,18 @@ struct TopListView: View {
 
     var body: some View {
         NavigationView {
-            List(topListVM.eventData) { event in
-                NavigationLink(destination: EventDetailView(eventData: event)) {
-                    EventRowView(eventData: event)
+            ZStack {
+                List(topListVM.eventData) { event in
+                    NavigationLink(destination: EventDetailView(eventData: event)) {
+                        EventRowView(eventData: event)
+                    }
+                }
+                if self.topListVM.isShowIndicator {
+                    if #available(iOS 14.0, *) {
+                        AnyView(ProgressView("Loading..."))
+                    } else {
+                        LoadingView()
+                    }
                 }
             }
             .navigationBarTitle(Text("YUMEMI.swift一覧"))

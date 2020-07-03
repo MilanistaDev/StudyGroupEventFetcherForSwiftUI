@@ -11,10 +11,13 @@ import Foundation
 class TopListViewModel: ObservableObject {
     let fetcher = StudyGroupEventFetcher()
     @Published var eventData: [Event] = []
+    @Published var isShowIndicator = true
 
     init() {
         self.fetcher.fetchEventData { (events) in
+            sleep(1)
             self.eventData = events
+            self.isShowIndicator = false
         }
     }
 }
