@@ -35,6 +35,13 @@ struct EventRowView: View {
                 Text("#" + eventData.hashTag)
                     .foregroundColor(.blue)
                     .font(.caption)
+                    .bold()
+                    .padding(.horizontal, 8.0)
+                    .padding(.vertical, 4.0)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20.0)
+                            .stroke(Color.blue, lineWidth: 1.0)
+                )
             }
             .padding(.bottom, 8.0)
         }
