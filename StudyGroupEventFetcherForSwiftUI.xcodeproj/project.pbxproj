@@ -25,7 +25,9 @@
 		FD9EB147236C33EF00DD6367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9EB145236C33EF00DD6367 /* LaunchScreen.storyboard */; };
 		FD9EB152236C33EF00DD6367 /* StudyGroupEventFetcherForSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9EB151236C33EF00DD6367 /* StudyGroupEventFetcherForSwiftUITests.swift */; };
 		FD9EB15D236C33EF00DD6367 /* StudyGroupEventFetcherForSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9EB15C236C33EF00DD6367 /* StudyGroupEventFetcherForSwiftUIUITests.swift */; };
+		FDA2705C24A7873A009A8505 /* EventLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA2705B24A7873A009A8505 /* EventLabelView.swift */; };
 		FDAE1B78237173C900217BD1 /* StudyGroupDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE1B77237173C900217BD1 /* StudyGroupDateFormatter.swift */; };
+		FDEA054024ADE2B700AC44EC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEA053F24ADE2B700AC44EC /* LoadingView.swift */; };
 		FDF7EB90244B2B3000BF1A6E /* EventDetailButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7EB8F244B2B3000BF1A6E /* EventDetailButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +73,9 @@
 		FD9EB158236C33EF00DD6367 /* StudyGroupEventFetcherForSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyGroupEventFetcherForSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9EB15C236C33EF00DD6367 /* StudyGroupEventFetcherForSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyGroupEventFetcherForSwiftUIUITests.swift; sourceTree = "<group>"; };
 		FD9EB15E236C33EF00DD6367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDA2705B24A7873A009A8505 /* EventLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLabelView.swift; sourceTree = "<group>"; };
 		FDAE1B77237173C900217BD1 /* StudyGroupDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyGroupDateFormatter.swift; sourceTree = "<group>"; };
+		FDEA053F24ADE2B700AC44EC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FDF7EB8F244B2B3000BF1A6E /* EventDetailButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 		FD0506D4236C4A70003260B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FDEA053E24ADE2A000AC44EC /* Common */,
 				FD50073223AFBDE700C369EF /* TopEventList */,
 				FD50073323AFBDFC00C369EF /* EventDetail */,
 				FD50073723AFC29000C369EF /* Map */,
@@ -125,6 +130,7 @@
 			children = (
 				FD0506D5236C4A8F003260B9 /* TopListView.swift */,
 				FD0506D7236C4FA5003260B9 /* EventRowView.swift */,
+				FDA2705B24A7873A009A8505 /* EventLabelView.swift */,
 			);
 			path = TopEventList;
 			sourceTree = "<group>";
@@ -234,6 +240,14 @@
 				FD9EB15E236C33EF00DD6367 /* Info.plist */,
 			);
 			path = StudyGroupEventFetcherForSwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		FDEA053E24ADE2A000AC44EC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FDEA053F24ADE2B700AC44EC /* LoadingView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +385,7 @@
 				FD0506D8236C4FA5003260B9 /* EventRowView.swift in Sources */,
 				FD9EB13B236C33EE00DD6367 /* AppDelegate.swift in Sources */,
 				FDAE1B78237173C900217BD1 /* StudyGroupDateFormatter.swift in Sources */,
+				FDEA054024ADE2B700AC44EC /* LoadingView.swift in Sources */,
 				FD50ECAD23717D3B00BC8342 /* TopListViewModel.swift in Sources */,
 				FD50073923AFC2AC00C369EF /* MapView.swift in Sources */,
 				FD0506D1236C46A4003260B9 /* StudyGroup.swift in Sources */,
@@ -379,6 +394,7 @@
 				FD0506DC2371282C003260B9 /* SafariView.swift in Sources */,
 				FD9EB13D236C33EE00DD6367 /* SceneDelegate.swift in Sources */,
 				FD0506D3236C471E003260B9 /* Event.swift in Sources */,
+				FDA2705C24A7873A009A8505 /* EventLabelView.swift in Sources */,
 				FD0506DA23712219003260B9 /* EventDetailView.swift in Sources */,
 				FD525C65237133AE00F9C171 /* StudyGroupEventFetcher.swift in Sources */,
 				FD50073623AFBEEE00C369EF /* EventDetailPartView.swift in Sources */,
