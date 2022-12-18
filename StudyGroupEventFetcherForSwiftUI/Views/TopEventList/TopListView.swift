@@ -9,27 +9,17 @@
 import SwiftUI
 
 struct TopListView: View {
-
-    // let eventsData: [Event] = mockEventsData
-    @ObservedObject private var topListVM = TopListViewModel()
+    @StateObject private var topListVM = TopListViewModel()
 
     var body: some View {
         NavigationView {
-            ZStack {
-                List(topListVM.eventData) { event in
-                    NavigationLink(destination: EventDetailView(eventData: event)) {
-                        EventRowView(eventData: event)
-                    }
-                }
-                if self.topListVM.isShowIndicator {
-                    if #available(iOS 14.0, *) {
-                        AnyView(ProgressView("Loading..."))
-                    } else {
-                        LoadingView()
-                    }
+            List(topListVM.eventData) { event in
+                NavigationLink(destination: EventDetailView(eventData: event)) {
+                    EventRowView(eventData: event)
                 }
             }
             .navigationBarTitle(Text("YUMEMI.swift一覧"))
+            .loading(isRefreshing: topListVM.isShowIndicator)
         }
     }
 }
