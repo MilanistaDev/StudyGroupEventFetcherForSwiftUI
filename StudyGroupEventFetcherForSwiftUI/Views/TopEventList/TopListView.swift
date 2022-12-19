@@ -18,7 +18,7 @@ struct TopListView: View {
                     EventRowView(eventData: event)
                 }
             }
-            .navigationTitle("YUMWMI.swift一覧")
+            .navigationTitle("YUMEMI.swift一覧")
             .navigationBarTitleDisplayMode(.large)
             .loading(isRefreshing: topListVM.isShowIndicator)
         }
