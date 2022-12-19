@@ -12,6 +12,7 @@ import MapKit
 struct NewMapView: View {
     // リスト画面から渡ってくる勉強会情報
     let eventData: Event
+    @Binding var zoomValue: CLLocationDegrees
 
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.6816005869028, longitude: 139.76595878344898), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
@@ -23,6 +24,9 @@ struct NewMapView: View {
             }
         .onAppear {
             setTargetRegion()
+        }
+        .onChange(of: zoomValue) { newValue in
+            region.span = MKCoordinateSpan(latitudeDelta: zoomValue, longitudeDelta: zoomValue)
         }
     }
 }
@@ -56,6 +60,6 @@ extension NewMapView {
 
 struct NewMapView_Previews: PreviewProvider {
     static var previews: some View {
-        NewMapView(eventData: mockEventsData[0])
+        NewMapView(eventData: mockEventsData[0], zoomValue: .constant(0.01))
     }
 }
