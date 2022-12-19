@@ -29,7 +29,8 @@ struct EventDetailView: View {
                 EventDetailButtonView(eventUrl: self.eventData.eventUrl)
             }
         }
-        .navigationBarTitle("Event Detail", displayMode: .inline)
+        .navigationTitle("勉強会詳細")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
