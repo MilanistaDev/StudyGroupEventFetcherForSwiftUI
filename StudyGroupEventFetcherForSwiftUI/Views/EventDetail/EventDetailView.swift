@@ -17,8 +17,9 @@ struct EventDetailView: View {
             VStack(alignment: .leading) {
                 // MapView Part
                 ZStack(alignment: .bottomTrailing) {
-                    MapView(eventData: self.eventData, zoomValue: $zoomValue)
+                    NewMapView(eventData: eventData)
                         .frame(height: 300.0)
+
                     EventDetailMapButtonView(zoomValue: $zoomValue)
                         .padding(.bottom, 24.0)
                         .padding(.trailing, 12.0)
