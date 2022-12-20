@@ -12,11 +12,14 @@ struct TopListView: View {
     @StateObject private var topListVM = TopListViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(topListVM.eventData) { event in
-                NavigationLink(destination: EventDetailView(eventData: event)) {
+                NavigationLink(value: event) {
                     EventRowView(eventData: event)
                 }
+            }
+            .navigationDestination(for: Event.self) { event in
+                EventDetailView(eventData: event)
             }
             .navigationTitle("YUMEMI.swift一覧")
             .navigationBarTitleDisplayMode(.large)
