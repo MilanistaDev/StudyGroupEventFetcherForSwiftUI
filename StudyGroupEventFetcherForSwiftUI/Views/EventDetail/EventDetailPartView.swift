@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EventDetailPartView: View {
     // Event Model
-    let eventData: Event!
+    let eventData: Event
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -45,6 +45,6 @@ struct EventDetailPartView: View {
 
 struct EventDetailPartView_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetailPartView(eventData: mockEventsData.first)
+        EventDetailPartView(eventData: mockEventsData[0])
     }
 }

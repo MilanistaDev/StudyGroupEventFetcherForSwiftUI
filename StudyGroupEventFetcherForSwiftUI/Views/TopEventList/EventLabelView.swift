@@ -15,9 +15,9 @@ enum ColorType {
 
 struct EventLabelView: View {
 
-    var labelName: String
-    var iconName: String
-    var colorType: ColorType
+    let labelName: String
+    let iconName: String
+    let colorType: ColorType
 
     var body: some View {
         HStack {
