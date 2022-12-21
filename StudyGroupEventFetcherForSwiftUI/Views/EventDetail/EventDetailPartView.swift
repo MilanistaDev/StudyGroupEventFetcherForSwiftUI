@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EventDetailPartView: View {
     // Event Model
-    let eventData: Event!
+    let eventData: Event
 
     var body: some View {
         VStack(alignment: .leading) {

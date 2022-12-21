@@ -14,7 +14,6 @@
 		FD0506DA23712219003260B9 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0506D923712219003260B9 /* EventDetailView.swift */; };
 		FD0506DC2371282C003260B9 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0506DB2371282C003260B9 /* SafariView.swift */; };
 		FD50073623AFBEEE00C369EF /* EventDetailPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50073523AFBEEE00C369EF /* EventDetailPartView.swift */; };
-		FD50073923AFC2AC00C369EF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50073823AFC2AC00C369EF /* MapView.swift */; };
 		FD50ECAD23717D3B00BC8342 /* TopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50ECAC23717D3B00BC8342 /* TopListViewModel.swift */; };
 		FD525C65237133AE00F9C171 /* StudyGroupEventFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD525C64237133AE00F9C171 /* StudyGroupEventFetcher.swift */; };
 		FD794B6D2462D35B00C000CD /* EventDetailMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD794B6C2462D35B00C000CD /* EventDetailMapButtonView.swift */; };
@@ -59,7 +58,6 @@
 		FD0506D923712219003260B9 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		FD0506DB2371282C003260B9 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		FD50073523AFBEEE00C369EF /* EventDetailPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPartView.swift; sourceTree = "<group>"; };
-		FD50073823AFC2AC00C369EF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FD50ECAC23717D3B00BC8342 /* TopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewModel.swift; sourceTree = "<group>"; };
 		FD525C64237133AE00F9C171 /* StudyGroupEventFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyGroupEventFetcher.swift; sourceTree = "<group>"; };
 		FD794B6C2462D35B00C000CD /* EventDetailMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailMapButtonView.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		FD50073723AFC29000C369EF /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				FD50073823AFC2AC00C369EF /* MapView.swift */,
 				FD9E6FDF29504FE000979FFF /* NewMapView.swift */,
 			);
 			path = Map;
@@ -397,7 +394,6 @@
 				FDEA054024ADE2B700AC44EC /* LoadingView.swift in Sources */,
 				FD50ECAD23717D3B00BC8342 /* TopListViewModel.swift in Sources */,
 				FD9E6FD6294D61B000979FFF /* LoadingViewModifier.swift in Sources */,
-				FD50073923AFC2AC00C369EF /* MapView.swift in Sources */,
 				FD0506D1236C46A4003260B9 /* StudyGroup.swift in Sources */,
 				FD0506D6236C4A8F003260B9 /* TopListView.swift in Sources */,
 				FD794B6D2462D35B00C000CD /* EventDetailMapButtonView.swift in Sources */,
