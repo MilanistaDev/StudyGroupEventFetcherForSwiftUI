@@ -9,27 +9,29 @@
 import SwiftUI
 
 struct TopListView: View {
-
-    // let eventsData: [Event] = mockEventsData
-    @ObservedObject private var topListVM = TopListViewModel()
+    @StateObject private var topListVM = TopListViewModel()
 
     var body: some View {
-        NavigationView {
-            ZStack {
-                List(topListVM.eventData) { event in
-                    NavigationLink(destination: EventDetailView(eventData: event)) {
-                        EventRowView(eventData: event)
-                    }
-                }
-                if self.topListVM.isShowIndicator {
-                    if #available(iOS 14.0, *) {
-                        AnyView(ProgressView("Loading..."))
-                    } else {
-                        LoadingView()
-                    }
+        NavigationStack {
+            List(topListVM.eventData) { event in
+                NavigationLink(value: event) {
+                    EventRowView(eventData: event)
                 }
             }
-            .navigationBarTitle(Text("YUMEMI.swift一覧"))
+            .navigationDestination(for: Event.self) { event in
+                EventDetailView(eventData: event)
+            }
+            .navigationTitle("YUMEMI.swift一覧")
+            .navigationBarTitleDisplayMode(.large)
+            .loading(isRefreshing: topListVM.isShowIndicator)
+        }
+        .onAppear {
+            topListVM.fetchEventData()
+        }
+        .alert(isPresented: $topListVM.isShowAlert, error: topListVM.error) { _ in
+            Button("OK", action: {})
+        } message: { error in
+            Text(error.errorDescription ?? "なぜかnilみたいね")
         }
     }
 }

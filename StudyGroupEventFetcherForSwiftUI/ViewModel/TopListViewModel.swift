@@ -8,16 +8,38 @@
 
 import Foundation
 
-class TopListViewModel: ObservableObject {
-    let fetcher = StudyGroupEventFetcher()
+final class TopListViewModel: ObservableObject {
     @Published var eventData: [Event] = []
-    @Published var isShowIndicator = true
+    @Published var isShowIndicator = false
+    @Published var error: APIError?
+    @Published var isShowAlert = false
 
-    init() {
-        self.fetcher.fetchEventData { (events) in
-            sleep(1)
-            self.eventData = events
-            self.isShowIndicator = false
+    private let fetcher = StudyGroupEventFetcher()
+
+    /// 勉強会データをAPIを叩いて取得(async/await版)
+    func fetchEventData() {
+        Task { @MainActor in
+            isShowIndicator = true
+            defer {
+                isShowIndicator = false
+            }
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+
+            do {
+                eventData = try await fetcher.fetchEventData()
+
+            } catch {
+                if let apiError = error as? APIError {
+                    self.error = apiError
+                    isShowAlert = true
+                } else if let error = error as? URLError, error.code == URLError.notConnectedToInternet {
+                    self.error = APIError.network
+                    isShowAlert = true
+                } else {
+                    // 🤔
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 }

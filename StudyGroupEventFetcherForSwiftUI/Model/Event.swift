@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Event: Decodable, Identifiable {
+struct Event: Decodable, Identifiable, Hashable {
     var id: Int
     var title: String
     var subTitle: String

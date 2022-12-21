@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EventDetailView: View {
-    var eventData: Event    // From ListView(静的モデル)
+    let eventData: Event    // From ListView(静的モデル)
     @State private var zoomValue = 0.01
 
     var body: some View {
@@ -17,8 +17,12 @@ struct EventDetailView: View {
             VStack(alignment: .leading) {
                 // MapView Part
                 ZStack(alignment: .bottomTrailing) {
-                    MapView(eventData: self.eventData, zoomValue: $zoomValue)
-                        .frame(height: 300.0)
+                    NewMapView(
+                        eventData: eventData,
+                        zoomValue: $zoomValue
+                    )
+                    .frame(height: 300.0)
+
                     EventDetailMapButtonView(zoomValue: $zoomValue)
                         .padding(.bottom, 24.0)
                         .padding(.trailing, 12.0)
@@ -29,7 +33,8 @@ struct EventDetailView: View {
                 EventDetailButtonView(eventUrl: self.eventData.eventUrl)
             }
         }
-        .navigationBarTitle("Event Detail", displayMode: .inline)
+        .navigationTitle("勉強会詳細")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

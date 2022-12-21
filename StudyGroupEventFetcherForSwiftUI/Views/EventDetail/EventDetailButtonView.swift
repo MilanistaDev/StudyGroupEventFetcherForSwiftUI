@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EventDetailButtonView: View {
 
-    var eventUrl: String
+    let eventUrl: String
 
     var body: some View {
         if #available(iOS 14.0, *) {
