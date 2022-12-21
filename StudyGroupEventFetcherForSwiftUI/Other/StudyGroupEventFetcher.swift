@@ -27,4 +27,26 @@ class StudyGroupEventFetcher {
             }
         }.resume()
     }
+
+    func fetchEventData() async throws -> [Event] {
+        let (data, response) = try await URLSession.shared.data(from: URL(string: urlLink)!)
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.response
+        }
+
+        switch httpResponse.statusCode {
+        case 200:
+            do {
+                let searchedResultData = try JSONDecoder().decode(StudyGroup.self, from: data)
+                return searchedResultData.events.reversed()
+
+            } catch {
+                throw APIError.jsonDecode
+            }
+
+        default:
+            throw APIError.statusCode(statusCode: httpResponse.statusCode.description)
+        }
+    }
 }
