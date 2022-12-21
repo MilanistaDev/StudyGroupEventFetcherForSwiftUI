@@ -8,16 +8,28 @@
 
 import Foundation
 
-class TopListViewModel: ObservableObject {
-    let fetcher = StudyGroupEventFetcher()
+final class TopListViewModel: ObservableObject {
     @Published var eventData: [Event] = []
-    @Published var isShowIndicator = true
+    @Published var isShowIndicator = false
+    @Published var error: Error?
 
-    init() {
-        self.fetcher.fetchEventData { (events) in
-            sleep(1)
-            self.eventData = events
-            self.isShowIndicator = false
+    private let fetcher = StudyGroupEventFetcher()
+
+    /// 勉強会データをAPIを叩いて取得(async/await版)
+    func fetchEventData() {
+        Task { @MainActor in
+            isShowIndicator = true
+            defer {
+                isShowIndicator = false
+            }
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+
+            do {
+                eventData = try await fetcher.fetchEventData()
+
+            } catch {
+                self.error = error
+            }
         }
     }
 }

@@ -25,6 +25,9 @@ struct TopListView: View {
             .navigationBarTitleDisplayMode(.large)
             .loading(isRefreshing: topListVM.isShowIndicator)
         }
+        .onAppear {
+            topListVM.fetchEventData()
+        }
     }
 }
 
