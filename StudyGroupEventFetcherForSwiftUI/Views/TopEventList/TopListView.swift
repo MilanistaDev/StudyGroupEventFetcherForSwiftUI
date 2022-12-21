@@ -25,6 +25,14 @@ struct TopListView: View {
             .navigationBarTitleDisplayMode(.large)
             .loading(isRefreshing: topListVM.isShowIndicator)
         }
+        .onAppear {
+            topListVM.fetchEventData()
+        }
+        .alert(isPresented: $topListVM.isShowAlert, error: topListVM.error) { _ in
+            Button("OK", action: {})
+        } message: { error in
+            Text(error.errorDescription ?? "なぜかnilみたいね")
+        }
     }
 }
 
