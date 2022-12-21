@@ -9,6 +9,7 @@
 import Foundation
 
 enum APIError: Error {
+    case network
     case response
     case jsonDecode
     case statusCode(statusCode: String)
@@ -17,6 +18,9 @@ enum APIError: Error {
 extension APIError: LocalizedError {
     var errorDescription: String? {
         switch self {
+        case .network:
+            return "Network Error"
+
         case .response:
             return "Response Error"
 

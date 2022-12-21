@@ -32,8 +32,12 @@ final class TopListViewModel: ObservableObject {
                 if let apiError = error as? APIError {
                     self.error = apiError
                     isShowAlert = true
+                } else if let error = error as? URLError, error.code == URLError.notConnectedToInternet {
+                    self.error = APIError.network
+                    isShowAlert = true
                 } else {
                     // 🤔
+                    print(error.localizedDescription)
                 }
             }
         }
