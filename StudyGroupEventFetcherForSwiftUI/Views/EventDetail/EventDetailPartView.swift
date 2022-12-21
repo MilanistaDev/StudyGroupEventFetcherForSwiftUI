@@ -45,6 +45,6 @@ struct EventDetailPartView: View {
 
 struct EventDetailPartView_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetailPartView(eventData: mockEventsData.first)
+        EventDetailPartView(eventData: mockEventsData[0])
     }
 }
