@@ -31,7 +31,7 @@ struct TopListView: View {
         .alert(isPresented: $topListVM.isShowAlert, error: topListVM.error) { _ in
             Button("OK", action: {})
         } message: { error in
-            Text(error.errorDescription)
+            Text(error.errorDescription ?? "なぜかnilみたいね")
         }
     }
 }
