@@ -11,7 +11,8 @@ import Foundation
 final class TopListViewModel: ObservableObject {
     @Published var eventData: [Event] = []
     @Published var isShowIndicator = false
-    @Published var error: Error?
+    @Published var error: APIError?
+    @Published var isShowAlert = false
 
     private let fetcher = StudyGroupEventFetcher()
 
@@ -28,7 +29,12 @@ final class TopListViewModel: ObservableObject {
                 eventData = try await fetcher.fetchEventData()
 
             } catch {
-                self.error = error
+                if let apiError = error as? APIError {
+                    self.error = apiError
+                    isShowAlert = true
+                } else {
+                    // 🤔
+                }
             }
         }
     }
