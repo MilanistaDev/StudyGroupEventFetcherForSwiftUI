@@ -10,6 +10,10 @@ Wrote article.
 
 [https://qiita.com/MilanistaDev/items/64dca8c9d5099a19529e](https://qiita.com/MilanistaDev/items/64dca8c9d5099a19529e)
 
+### iOS 16 Support 
+
+[https://qiita.com/MilanistaDev/items/fce3987b02a284f5112a](https://qiita.com/MilanistaDev/items/fce3987b02a284f5112a)
+
 ## Enjoy SwiftUI vol2
 
 This sample is for live coding of Enjoy SwiftUI vol2.  
